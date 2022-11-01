@@ -1,0 +1,11 @@
+<h1 class="text-left" mat-dialog-title> {{data?.title ? data?.title : 'N/A'}}</h1>
+<div mat-dialog-content>
+  <p >
+    {{data?.body ? data?.body : 'N/A'}}
+  </p>
+</div>
+
+<div class="d-flex justify-content-end"  mat-dialog-actions>
+    <button class="modalOkBtn" mat-button (click)="onDismiss()">No</button>
+    <button class="modalOkBtn" mat-raised-button  (click)="onConfirm()">Yes</button>
+  </div>
