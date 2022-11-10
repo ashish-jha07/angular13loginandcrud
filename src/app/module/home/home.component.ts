@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSidenav } from '@angular/material/sidenav';
+import { SidenavService } from '../shared/services/sidenav.service';
 
 @Component({
   selector: 'app-home',
@@ -6,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor() { }
+  @ViewChild('sidenav') public sidenav!: MatSidenav;
 
-  ngOnInit(): void {
+  options: FormGroup;
+
+  constructor(fb: FormBuilder, private sidenavService: SidenavService) {
+    this.options = fb.group({
+      bottom: 0,
+      fixed: false,
+      top: 0
+    });
   }
+  ngOnInit(): void {
+    
+  }
+
+  ngAfterViewInit(): void {
+    this.sidenavService.setSidenav(this.sidenav);
+  }
+
 
 }

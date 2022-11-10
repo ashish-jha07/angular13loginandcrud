@@ -11,3 +11,14 @@ export enum Usercredentials
     USER_NAME                         = 'admin',
     PASSWORD                          = "123456"
 }
+
+export enum ApiEndPoints
+{
+
+    LOGIN       = "login",
+    USER_LIST   = 'users?page=',
+    USER        = 'users/',
+    CREATE_USER = 'register',
+    SIGNUP_USER = 'register'
+    
+}

@@ -1,13 +1,22 @@
   <div class="mainHeader">
     <div class="row align-items-center">
-        
-        <div class="col-lg-12 col-md-4 col-sm-5 col-12">
+                <div class="col-6" >
+                    <button  mat-button routerLinkActive="active" (click)="toggle()">Toggle</button>
+                    <button  mat-button routerLinkActive="active" (click)="navigateTo('home')">Home</button>
+                    <button  mat-button routerLinkActive="active" (click)="navigateTo('activity')">Activity</button>
+                    <button  mat-button routerLinkActive="active"  (click)="navigateTo('account')">Accounts</button>
+
+                </div>
+        <div class="col-lg-6 col-md-4 col-sm-5 col-6">
+                            
             <div class="headerRightSide">
+                <div>
+        
+                </div>
                 <div class="headerUserContainer">
                     <div class="headerUserData">
                         <div class="headerUserName">
                             <h3>
-                            
                                {{ user.username ? user.username : 'N/A'}}
                             </h3>
                         </div>

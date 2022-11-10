@@ -19,12 +19,17 @@ export class AddEditEmpComponent implements OnInit {
     this.createEmpForm()
     //In edit case value patch in form
     if(!this.data?.isAddmode){
+      this.getUSer(this.data['id'])
       this.employeeDetailForm.patchValue({
         'name' : this.data?.employedetails.name,
         'email' : this.data?.employedetails.email,
         'mobile' : this.data?.employedetails.mobile
       });
   }
+  }
+
+  getUSer(id:number){
+
   }
 
 /**

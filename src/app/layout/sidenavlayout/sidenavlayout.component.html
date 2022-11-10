@@ -1,0 +1,62 @@
+<app-header></app-header>
+<div>
+<div >
+    <ng-container >
+  
+        <mat-sidenav-container class="example-container">
+          <mat-sidenav
+            #sidenav
+            mode="side"
+            [opened]="true"
+            class="example-sidenav"
+            [fixedInViewport]="options.value.fixed"
+            [fixedTopGap]="options.value.top"
+            [fixedBottomGap]="options.value.bottom"
+          >
+
+            <mat-nav-list>
+                <mat-list-item routerLink="1" routerLinkActive="active" routerLink="/home">
+                  <mat-icon mat-list-icon>person</mat-icon>
+                  <div fxFlex="10"></div>
+                  <div  class="sidenav-item">
+                    <h5 class="lead">Users</h5>
+                  </div>
+                </mat-list-item>
+          
+                <mat-list-item routerLink="2" routerLinkActive="active" routerLink="/home/services">
+                  <mat-icon mat-list-icon>settings</mat-icon>
+                  <div fxFlex="10"></div>
+                  <div  class="sidenav-item">
+                    <h5 class="lead">Services</h5>
+                  </div>
+                </mat-list-item>
+          
+                <mat-list-item routerLink="3" routerLinkActive="active" routerLink="/home/resetpassword">
+                  <mat-icon mat-list-icon>local_phone</mat-icon>
+                  <div fxFlex="10"></div>
+                  <div  class="sidenav-item">
+                    <h5 class="lead">Reset password</h5>
+                  </div>
+                </mat-list-item>
+          
+          
+          
+              </mat-nav-list>
+          </mat-sidenav>
+       
+          <mat-sidenav-content [formGroup]="options">
+            <router-outlet></router-outlet>
+
+          </mat-sidenav-content>
+
+        </mat-sidenav-container>
+
+      </ng-container>
+</div>
+<div >
+
+
+</div>
+</div>
+
+<!-- <router-outlet></router-outlet> -->

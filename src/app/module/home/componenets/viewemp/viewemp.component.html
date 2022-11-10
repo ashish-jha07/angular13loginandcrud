@@ -1,0 +1,36 @@
+
+<div class="employee-detail-container">
+    <mat-card class="employee-detail-card">
+        <mat-card-header style="justify-content: center">
+            <mat-card-title class="employee-detail-card-title">
+                <img class="avtarimg" src={{data?.employedetails.avatar}} alt="user image" />
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="employee-detail-card-content">
+            <div class="form-field-container">
+                <div class="form-feild-label-container">
+                    <label class="form-field-label" for="nameField">EmpId</label>
+                    <div>
+                        {{data?.employedetails.id ? data?.employedetails.id : 'N/A'}}
+                    </div>
+                </div>
+                <div class="form-feild-label-container">
+                    <label class="form-field-label" for="nameField">Full name</label>
+                    <div>
+                        {{data?.employedetails.first_name}}   {{data?.employedetails.last_name}}
+                    </div>
+                </div>
+                <div class="form-feild-label-container">
+                    <label class="form-field-label" for="nameField">Email</label>
+                    <div>
+                        {{data?.employedetails.email ? data?.employedetails.email : 'N/A'}}
+                    </div>
+
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="warn" (click)="onCancel()" >Okay</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

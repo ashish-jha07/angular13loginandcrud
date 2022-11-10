@@ -1,29 +1,33 @@
 
 <div class="container col-md-12">
-    <div>
+    <!-- <div>
         <a  class="btn btn-primary addempbtn" (click)="addEditModel(true, null)">Add Employee</a>
-    </div>
+    </div> -->
     <table class="table" >
         <thead>
           <tr>
+            <th></th>
             <th scope="col">EmpId</th>
-            <th scope="col">Name</th>
+            <th scope="col">Full name</th>
             <th scope="col">Email</th>
-            <th scope="col">Mobile</th>
-            <th scope="col">Status</th>                
+            <!-- <th scope="col">Mobile</th> -->
+            <!-- <th scope="col">Status</th>                 -->
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let data of employeelist; trackBy:identify">
-            <td>{{data?.empId ? data?.empId : 'N/A' }}</td>
-            <td>{{data?.name  ? data?.name  : 'N/A'}}</td>
+          <tr *ngFor="let data of employeelist; trackBy:identify">            
+            <!-- <ng-container *ngIf="data?.status !='Inactive'"> -->
+              <td>                <img class="avtarimg" src={{data.avatar}} />              </td>
+            <td>{{data?.id ? data?.id : 'N/A' }}</td>
+            <td>{{data?.first_name  ? (data?.first_name+ " " + data?.last_name)  : 'N/A'}}</td>
             <td>{{data?.email ? data?.email : 'N/A'}}</td>
-            <td>{{data?.mobile? data?.mobile: 'N/A'}}</td>
-            <td>{{data?.status? data?.status: 'N/A'}}</td>
-            <td *ngIf="data?.status !='Inactive'"> <button class="btn btn-primary mx-1" (click)="addEditModel(false, data)">Edit</button>
-                <button class="btn btn-danger" (click)="delteEmployeeConfirmation(data['empId']!)">Delet</button>
+            <!-- <td>{{data?.mobile? data?.mobile: 'N/A'}}</td> -->
+            <!-- <td>{{data?.status? data?.status: 'N/A'}}</td> -->
+            <td > <button class="btn btn-primary mx-1" (click)="addEditModel(false, data)">View</button>
+                <!-- <button class="btn btn-danger" (click)="delteEmployeeConfirmation(data['id']!)">Delet</button> -->
             </td>
+            <!-- </ng-container> -->
           </tr>
           <tr *ngIf="!employeelist || employeelist?.length ==0">
             <td colspan="6">
@@ -34,4 +38,23 @@
           </tr>
         </tbody>
     </table>
+
+ <!-- pagination -->
+     <nav  class="pageinationemp" *ngIf="employeelist && employeelist.length>0">
+      <ul class="pagination cursorys">
+        <li class="page-item ">
+          <a class="page-link"   [class.disabled] ="page_Number == 1" (click)="getUSers(page_Number - 1)">Previous</a>
+        </li>
+        <ng-container *ngFor='let in of counter(total_pages) ;let i = index'>  
+          <li  class="page-item" [class.disabled] ="page_Number == (i+1)" (click)='getUSers((i+1))'>
+            <a class="page-link " [class.active]="page_Number == (i+1)">{{i+1}}</a>
+          </li>
+        </ng-container>
+
+        <li class="page-item">
+          <a class="page-link" [class.disabled] ="page_Number == total_pages " (click) ="getUSers(page_Number + 1)">Next</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- pagination -->
 </div>

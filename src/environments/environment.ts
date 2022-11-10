@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   encryptKey  : '1234567898787878787878',
+  apiEndpoint :  'https://reqres.in/api/'
 };
 
 /*

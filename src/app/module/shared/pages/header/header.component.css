@@ -6,7 +6,9 @@
     top: 0;
     z-index: 99;
 }
-
+.active {
+    background-color: #a49696;
+}
 .headerLeftSide {
     display: flex;
     align-items: center;

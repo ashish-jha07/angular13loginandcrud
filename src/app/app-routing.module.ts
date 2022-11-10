@@ -19,6 +19,18 @@ const routes: Routes = [
 
   },
   {
+    path: 'activity',
+    loadChildren: () => import('./module/activity/activity.module').then(m => m.ActivityModule),
+    canActivate: [AuthGuard]
+
+  },
+  {
+    path: 'account',
+    loadChildren: () => import('./module/acount/acount.module').then(m => m.AcountModule),
+    canActivate: [AuthGuard]
+
+  },
+  {
     path: '**',
     redirectTo: 'home',
     pathMatch: 'full'
@@ -28,6 +40,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  
 })
 export class AppRoutingModule { }

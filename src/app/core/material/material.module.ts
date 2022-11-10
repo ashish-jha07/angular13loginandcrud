@@ -11,7 +11,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatSelectModule} from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs'; 
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list'
 
 const materialModules = [
   MatInputModule,
@@ -24,7 +26,10 @@ const materialModules = [
   MatSnackBarModule,
   MatSelectModule,
   MatTabsModule,
-  MatDialogModule
+  MatDialogModule,
+  MatProgressSpinnerModule,
+  MatSidenavModule,
+  MatListModule
 
 ];
 
@@ -36,5 +41,6 @@ const materialModules = [
     ...materialModules
   ] , 
   exports: [...materialModules],
+  
 })
 export class MaterialModule { }

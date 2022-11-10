@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { HeaderComponent } from './pages/header/header.component';
+import { FooterComponent } from './pages/footer/footer.component';
+import { ConfirmationDialogComponent } from './pages/confirmation-dialog/confirmation-dialog.component';
+import { LoaderComponent } from './pages/loader/loader.component';
+import { MaterialModule } from './../../core/material/material.module';
 
 
 
@@ -10,16 +12,21 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
   declarations: [
     HeaderComponent,
     FooterComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    LoaderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule,
+
   ], 
+
 
   exports:[
     HeaderComponent,
     FooterComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    LoaderComponent
   ]
 })
 export class SharedModule { }
