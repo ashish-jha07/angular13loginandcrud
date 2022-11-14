@@ -8,9 +8,45 @@ import {  map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  empList : Employe[] = [] ;
-
+  empList     : Employe[] = [] ;
+  private  addressList =[{
+    city : 'jaipur',
+    state : 'rajasthan',
+    country : 'India'
+  },
+  {
+    city : 'Ajmer',
+    state : 'rajasthan',
+    country : 'India'
+  },
+  {
+    city : 'jaipur',
+    state : 'rajasthan',
+    country : 'AU'
+  }
+] ;
   constructor(private apihttpservcie : ApiHttpService) {   }
+
+  getAddressList(){
+    return this.addressList
+  }
+  getfiltedrCity(cityName : string){
+    this.addressList=  this.addressList.filter((item)=>{
+     return item.city.toLocaleLowerCase() == cityName.toLocaleLowerCase()
+    })
+    return this.addressList;
+  }
+
+  
+
+
+  /**
+   * This method use for delete address
+   * @param index
+   */
+   deleteAddress( index : number){
+    this.addressList.splice(index,1)
+   }
 
   /**
    * This method used for return employe list

@@ -13,7 +13,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list'
+import {MatListModule} from '@angular/material/list';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 const materialModules = [
   MatInputModule,
@@ -29,8 +31,8 @@ const materialModules = [
   MatDialogModule,
   MatProgressSpinnerModule,
   MatSidenavModule,
-  MatListModule
-
+  MatListModule,
+  MatDatepickerModule
 ];
 
 

@@ -30,5 +30,13 @@ export class UtilityService {
     return AES.decrypt(data, key).toString(enc.Utf8);
   }
 
-
+/**
+ * This method comined array
+ * @param array1 
+ * @param array2 
+ * @returns combined array
+ */
+  cobineArray(array1 : Array<any>,array2:Array<any>){
+    return [].concat(...array1,...array2)
+  }
 }

@@ -21,13 +21,23 @@ export class EmployelistComponent implements OnInit , OnDestroy {
   per_Page      : number = 5;
   total_records : number = 0;
   sub$          = new Subject()  
+  addressList   :any;
   constructor(public matdialog: MatDialog , private dataservice : DataService, private loader : LoaderService) { }
 
   ngOnInit(): void {
   //  this.employeelist= this.dataservice.getEmployelist()
-   this.getUSers(this.page_Number)
+    this.addressList = this.dataservice.getAddressList()
+
+    let address = "2 jaipur rajasthan india"
+    console.log(address.split(" "));
+    
+    this.getUSers(this.page_Number)
   }
 
+
+  filterData(){
+   this.addressList = this.dataservice.getfiltedrCity('jaipur');
+  }
 
 /**
  * This method used in add and edit employee 
@@ -59,9 +69,10 @@ export class EmployelistComponent implements OnInit , OnDestroy {
       takeUntil(this.sub$))
     .subscribe((result:any) => {
       if(result){
-         this.dataservice.deleteUser(empid)       
+        //  this.dataservice.deleteUser(empid)       
         //  this.employeelist= this.dataservice.getEmployelist()     
         // this.getUSers(this.page_Number)    
+        this.deleteAddress(empid)
       }
     });   
   }
@@ -103,7 +114,9 @@ export class EmployelistComponent implements OnInit , OnDestroy {
     return new Array(i);
   }
 
-
+  deleteAddress(index : number){
+    this.dataservice.deleteAddress(index)
+  }
   ngOnDestroy(): void {
     /** This statements used for unsusribe api call */
       this.sub$.next(true);

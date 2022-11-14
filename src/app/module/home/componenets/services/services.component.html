@@ -1,1 +1,75 @@
-<p>services works!</p>
+<div class="example-container">
+    <form [formGroup]="programableCycleForm">
+        <div  formArrayName="cyclelist">
+            <div class="row position-relative mb-3" >
+    <fieldset class="border borderlogin rounded-3 p-3" >
+      <legend class="float-none w-auto px-3">Programable Cycle </legend>
+  <ng-container [formGroupName]="i" *ngFor="let programblecycle of programablecyclelists.controls; let i=index">
+    <div>
+      <mat-form-field  appearance="outline" fxFill>
+        <mat-label>Enter Cycle</mat-label>
+        <input matInput  maxlength="10" placeholder="Cycle" formControlName="cycle" />
+      </mat-form-field>
+
+      <mat-form-field  appearance="outline" fxFill>
+        <mat-label>Cycle Name</mat-label>
+        <input matInput #input maxlength="10" placeholder="Cycle Name" formControlName="cycleName"  />
+      </mat-form-field>
+
+      <mat-form-field  appearance="outline" fxFill>
+        <mat-label>Enter Cycle Time</mat-label>
+        <input matInput #input maxlength="10" placeholder="Cycle Time" formControlName="cycleTime"/>
+      </mat-form-field>
+      
+      <span class="mataddicon" *ngIf="(programablecyclelists.controls.length ==  (i+1))">
+      <mat-icon (click)="addProgrambleCycle()">add</mat-icon>
+      </span>
+      </div>
+      </ng-container>
+    </fieldset>
+    </div>
+    </div>
+    </form>
+  </div>
+  
+
+
+  <div class="example-container">
+    <form [formGroup]="programableCycleForm">
+      <div formArrayName="cyclelist">
+    <fieldset class="border borderlogin rounded-3 p-3">
+     <legend class="float-none w-auto px-3">Programable Cycle</legend>
+     <ng-container [formGroupName]="i" *ngFor="let programblecycle of programablecyclelists.controls; let i=index">
+     <div>
+
+     <div class="form-row programeblecycle">
+      <label  for="Cycle">Cycle #</label>
+      <div class="form-group col-md-2">
+        
+        <input type="text" class="form-control" id="Cycle_{{ i }}" formControlName="cycle">
+      </div>
+      <label for="cycleName">Cycle Name</label>
+      <div class="form-group col-md-2">
+
+        <input type="text" class="form-control" id="cycleName_{{ i }}" formControlName="cycleName">
+      </div>
+      <label for="cycleTime">Cycle Time</label>
+      <div class="form-group col-md-2">
+
+        <input type="text" class="form-control" id="cycleTime_{{ i }}" formControlName="cycleTime">
+      </div>
+      <span class="mataddicon" *ngIf="(programablecyclelists.controls.length ==  (i+1))">
+        <mat-icon (click)="addProgrambleCycle()">add</mat-icon>
+        </span>
+    </div>
+
+     </div>
+     </ng-container>
+    </fieldset>
+  </div>
+   </form>
+</div>
+  
+
+
+
