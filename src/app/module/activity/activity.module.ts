@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ViewactivityComponent } from './viewactivity/viewactivity.component';
 import { SharedModule } from '../shared/shared.module';
 import { SidenavlayoutComponent } from 'src/app/layout/sidenavlayout/sidenavlayout.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -31,10 +32,13 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ActivityComponent,
-    AddEditactivityComponent
+    AddEditactivityComponent,
+    ViewactivityComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     RouterModule.forChild(routes)
   ]

@@ -32,6 +32,17 @@ export class LocalStorageService {
     return false;
   }
 
+  /**
+   * This method used for remove key from localstorage
+   * @param key 
+   * @returns 
+   */
+   removeData(key: string)
+   {
+     if(localStorage.getItem(key))
+      localStorage.removeItem(key) ;
+    
+   }
 /**
  * This method used for logout
  */

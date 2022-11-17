@@ -9,11 +9,12 @@ import { AbstractControl, FormBuilder,  FormGroup, Validators ,FormArray} from '
 })
 export class ServicesComponent implements OnInit {
   programableCycleForm !: FormGroup 
+  submited              = false
   constructor( private fb: FormBuilder) {
     this.programableCycleForm = this.fb.group({
       cyclelist: this.fb.array([
       this.fb.group(  {
-          cycle       :[],
+          cycle       :['',Validators.required],
           cycleName   :[],
           cycleTime   :[]
         })
@@ -22,6 +23,7 @@ export class ServicesComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
   }
 
   get programablecyclelists() {
@@ -30,7 +32,7 @@ export class ServicesComponent implements OnInit {
   addProgrambleCycle() {    
     this.programablecyclelists.push(
       this.fb.group(  {
-        cycle       :[],
+        cycle       :['',[Validators.required]],
         cycleName   :[],
         cycleTime   :[]
       })
@@ -40,4 +42,38 @@ export class ServicesComponent implements OnInit {
   deletePartnerId(index: number) {
     this.programablecyclelists.removeAt(index);
   }
+
+
+  save(){
+    this.submited = true;
+    if((<FormArray>this.programableCycleForm.get('cyclelist')).length==1)
+    this.clearValidations()
+    else {
+      this.setValidation()
+    }
+    debugger
+    console.log(this.programableCycleForm.value , this.programableCycleForm.valid);
+    
+    this.programableCycleForm.markAllAsTouched()
+    return
+  }
+  // worked on assigment  and submit to dhawal
+  // helped vikash  subcategory validations and dublicate value etc..
+  clearValidations(): void {
+    debugger
+    (<FormArray>this.programableCycleForm.get('cyclelist')).controls.forEach(c =>{
+      console.log(c, "test");
+      c.get('cycle')?.clearValidators()
+      c.get('cycle')?.updateValueAndValidity()
+      });
+
+}
+
+setValidation(): void {
+  (<FormArray>this.programableCycleForm.get('cyclelist')).controls.forEach(c =>{
+    console.log(c, "test");
+    c.get('cycle')?.setValidators(Validators.required)
+    c.get('cycle')?.updateValueAndValidity()
+    });
+}
 }

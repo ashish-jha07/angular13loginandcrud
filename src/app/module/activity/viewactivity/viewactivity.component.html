@@ -1,1 +1,14 @@
 <p>view activity works! 123</p>
+
+
+<div class="m-2">
+    {{bookings.name}}   <input [disabled]="bookings.isAllselected && bookings.isRefundedAll" type="checkbox" [(ngModel)]="bookings.isAllselected" (change)="setUncheckedAll()" class="m-2">
+    <ng-container *ngFor="let data of bookings?.bookingData">
+        <div class="m-2">
+        {{data.name}}  <input class="m-2" [disabled]="data.isRefunded == true" type="checkbox" value="data.price" [(ngModel)]="data.isSelected" (ngModelChange)="updateAllChecked(data)"> price {{data.price}}
+        </div>
+    </ng-container>
+    <button (click)="refunded()">submit</button>
+</div>
+Total refunded amount
+{{bookings.totalRefundedAmount}}

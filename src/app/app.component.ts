@@ -16,7 +16,7 @@ export class AppComponent {
 
   ngAfterContentChecked() {
     this.loading$ = this.loader.loading$;
-    // this.cdRef.detectChanges();
+    this.cdRef.detectChanges();
   }
   
 }

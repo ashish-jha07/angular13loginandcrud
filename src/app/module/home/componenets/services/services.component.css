@@ -1,3 +1,7 @@
+.disabled1{
+  pointer-events: none;
+  
+}
 .example-container{
     margin : 10px 50px;
     display: flex;

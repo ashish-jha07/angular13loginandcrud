@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
 
 
   /**
-   * This method used to submit user login form
+   * This method used to submit user signup form
    */
   onSubmit(){
     this.submitted = true;

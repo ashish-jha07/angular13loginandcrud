@@ -9,8 +9,13 @@
       <mat-form-field  appearance="outline" fxFill>
         <mat-label>Enter Cycle</mat-label>
         <input matInput  maxlength="10" placeholder="Cycle" formControlName="cycle" />
+        
       </mat-form-field>
+      <div  *ngIf="submited && programablecyclelists.controls[i].get('cycle')?.hasError('required')">  
+          Please enter cycle Name.</div>
+      <!-- <span *ngIf="programablecyclelists.controls[i]['cycle'].haserror">   Please enter partner code.</span> -->
 
+     
       <mat-form-field  appearance="outline" fxFill>
         <mat-label>Cycle Name</mat-label>
         <input matInput #input maxlength="10" placeholder="Cycle Name" formControlName="cycleName"  />
@@ -20,15 +25,18 @@
         <mat-label>Enter Cycle Time</mat-label>
         <input matInput #input maxlength="10" placeholder="Cycle Time" formControlName="cycleTime"/>
       </mat-form-field>
-      
+      <mat-icon  (click)="deletePartnerId(i)" *ngIf="(programablecyclelists.controls.length ==  (i+2))">delete</mat-icon>
       <span class="mataddicon" *ngIf="(programablecyclelists.controls.length ==  (i+1))">
-      <mat-icon (click)="addProgrambleCycle()">add</mat-icon>
-      </span>
+      <mat-icon [class.disabled1]="programablecyclelists.invalid" (click)="addProgrambleCycle()">add</mat-icon>
+      
+
+    </span>
       </div>
       </ng-container>
     </fieldset>
     </div>
     </div>
+    <button (click)="save()"> save</button>
     </form>
   </div>
   

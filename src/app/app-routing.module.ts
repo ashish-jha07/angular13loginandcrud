@@ -15,19 +15,19 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./module/home/home.module').then(m => m.HomeModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
 
   },
   {
     path: 'activity',
     loadChildren: () => import('./module/activity/activity.module').then(m => m.ActivityModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
 
   },
   {
     path: 'account',
     loadChildren: () => import('./module/acount/acount.module').then(m => m.AcountModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
 
   },
   {
